@@ -1,13 +1,11 @@
 {
   "arquivo": "WhatsApp Image 2026-11-23 at 09.34.05 (1).jpeg",
   "contagem": 2,
-  "valor_centavos": 0,
-  "valor_confiavel": false,
-  "escala_mm_por_px": null,
-  "tempo_s": 0.074365,
-  "observacoes": [
-    "A soma não é confiável: alguma moeda não teve a denominação definida."
-  ],
+  "valor_centavos": 10,
+  "valor_confiavel": true,
+  "escala_mm_por_px": 0.081916,
+  "tempo_s": 0.07963,
+  "observacoes": [],
   "moedas": [
     {
       "indice": 1,
@@ -18,13 +16,13 @@
       "circularidade": 0.8963,
       "diametro_px": 274.2,
       "possivel_juncao": false,
-      "aparencia": "ouro",
-      "metal_centro": "ouro",
-      "metal_anel": "ouro",
-      "denominacao": null,
-      "valor_centavos": null,
-      "confiavel": false,
-      "rotulo": "?"
+      "aparencia": "cobre",
+      "metal_centro": "cobre",
+      "metal_anel": "cobre",
+      "denominacao": "5 centavos",
+      "valor_centavos": 5,
+      "confiavel": true,
+      "rotulo": "5c"
     },
     {
       "indice": 2,
@@ -35,13 +33,13 @@
       "circularidade": 0.8921,
       "diametro_px": 263.16,
       "possivel_juncao": false,
-      "aparencia": "incerta",
+      "aparencia": "cobre",
       "metal_centro": "cobre",
-      "metal_anel": "ouro",
-      "denominacao": null,
-      "valor_centavos": null,
-      "confiavel": false,
-      "rotulo": "?"
+      "metal_anel": "cobre",
+      "denominacao": "5 centavos",
+      "valor_centavos": 5,
+      "confiavel": true,
+      "rotulo": "5c"
     }
   ],
   "rejeitados": [],

@@ -1,0 +1,32 @@
+{
+  "arquivo": "WhatsApp Image 2026-11-23 at 09.34.09 (1).jpeg",
+  "contagem": 0,
+  "valor_centavos": 0,
+  "valor_confiavel": true,
+  "escala_mm_por_px": null,
+  "tempo_s": 0.030301,
+  "observacoes": [],
+  "moedas": [],
+  "rejeitados": [
+    {
+      "centro_x": 800.74,
+      "centro_y": 602.44,
+      "area": 1920475.5,
+      "circularidade": 0.7761,
+      "motivo": "area_grande"
+    }
+  ],
+  "parametros": {
+    "metodo_segmentacao": "bordas",
+    "polaridade": "auto",
+    "kernel_gaussiano": 5,
+    "kernel_morfologia": 5,
+    "circularidade_minima": 0.7,
+    "circularidade_minima_juncao": 0.5,
+    "area_minima_relativa": 0.002,
+    "area_maxima_relativa": 0.25,
+    "mm_por_px": null,
+    "somar_valores": true,
+    "usar_clahe": false
+  }
+}

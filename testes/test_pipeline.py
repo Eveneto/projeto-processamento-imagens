@@ -15,7 +15,8 @@ import numpy as np
 from config import Config
 from main import main
 from scripts.gerar_sinteticas import criar_imagem, definicoes
-from src.avaliar import avaliar
+from src.avaliar import avaliar, formatar_relatorio
+from src.classificar import _aparencia
 from src.fourier import filtrar_passa_baixa
 from src.io_imagem import carregar_imagem, salvar_imagem
 from src.pipeline import processar
@@ -58,7 +59,15 @@ class TestePipeline(unittest.TestCase):
         resultado = processar(imagem)
         self.assertEqual(resultado["contagem"], 3)
         self.assertFalse(resultado["valor_confiavel"])
-        self.assertEqual(resultado["valor_centavos"], 0)
+        self.assertEqual(resultado["valor_centavos"], 30)
+        self.assertTrue(all(moeda["rotulo"] == "10c?" for moeda in resultado["moedas"]))
+
+    def test_cobre_e_ouro_discordantes_usam_o_anel(self):
+        self.assertEqual(_aparencia("cobre", "ouro"), "ouro")
+        self.assertEqual(_aparencia("ouro", "cobre"), "cobre")
+        self.assertEqual(_aparencia("cobre", "cobre"), "cobre")
+        self.assertEqual(_aparencia("ouro", "prata"), "bimetalica_50")
+        self.assertEqual(_aparencia("prata", "ouro"), "bimetalica_1")
 
     def test_escala_informada_classifica_moedas_iguais(self):
         imagem = criar_imagem(
@@ -177,6 +186,43 @@ class TesteAvaliacao(unittest.TestCase):
         self.assertAlmostEqual(metricas["tempo_medio_s"], 0.2)
         self.assertAlmostEqual(metricas["erro_absoluto_medio_valor"], 15.0)
         self.assertEqual(metricas["imagens_ausentes"], 1)
+        self.assertEqual(metricas["soma_estimada_centavos"], 40)
+        self.assertEqual(metricas["soma_confiavel_centavos"], 40)
+
+    def test_relatorio_todos_lista_cada_imagem_e_a_soma(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            tmp = Path(tmp)
+            anotacoes = tmp / "anotacoes.csv"
+            resultados = tmp / "resumo.csv"
+            _escrever(
+                anotacoes,
+                ["arquivo", "conjunto", "contagem_real", "valor_centavos"],
+                [
+                    ["a.png", "teste", "3", "30"],
+                    ["b.png", "teste", "2", "40"],
+                    ["c.png", "desenvolvimento", "9", "100"],
+                    ["d.png", "teste", "1", "10"],
+                ],
+            )
+            _escrever(
+                resultados,
+                ["arquivo", "contagem", "valor_centavos", "valor_confiavel", "tempo_s", "observacoes"],
+                [
+                    ["a.png", "3", "30", "sim", "0,10", ""],
+                    ["b.png", "4", "10", "sim", "0.30", ""],
+                    ["c.png", "0", "0", "sim", "1.00", ""],
+                ],
+            )
+            metricas = avaliar(anotacoes, resultados, "todos")
+            texto = formatar_relatorio(metricas)
+
+        self.assertEqual(metricas["imagens"], 4)
+        self.assertEqual(metricas["soma_estimada_centavos"], 40)
+        self.assertEqual(metricas["soma_confiavel_centavos"], 40)
+        self.assertEqual(metricas["soma_real_centavos"], 180)
+        self.assertIn("c.png", texto)
+        self.assertIn("Soma total estimada: 40 centavos (R$ 0,40)", texto)
+        self.assertIn("Soma real anotada: 180 centavos (R$ 1,80)", texto)
 
 
 class TesteFourier(unittest.TestCase):

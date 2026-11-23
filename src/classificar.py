@@ -41,6 +41,10 @@ def _aparencia(centro: str, anel: str) -> str:
         return "bimetalica_1"
     if centro == anel and centro in {"cobre", "ouro"}:
         return centro
+    # Cobre e ouro não formam par bimetálico nesta família. O centro inclui o
+    # algarismo e, na moeda gasta, destoa da borda. A borda é o metal.
+    if centro in {"cobre", "ouro"} and anel in {"cobre", "ouro"}:
+        return anel
     return "incerta"
 
 
@@ -65,7 +69,19 @@ def _estimar_escala(moedas: list[dict]) -> float | None:
     return float(np.median(estimativas))
 
 
-def _marcar(moeda: dict, item: dict | None, rotulo_incerto: str = "?") -> None:
+def _ouro_menor() -> dict:
+    return min(
+        (item for item in CATALOGO if item["aparencia"] == "ouro"),
+        key=lambda item: item["mm"],
+    )
+
+
+def _marcar(
+    moeda: dict,
+    item: dict | None,
+    rotulo_incerto: str = "?",
+    confiavel: bool = True,
+) -> None:
     if item is None:
         moeda["denominacao"] = None
         moeda["valor_centavos"] = None
@@ -74,8 +90,8 @@ def _marcar(moeda: dict, item: dict | None, rotulo_incerto: str = "?") -> None:
         return
     moeda["denominacao"] = item["nome"]
     moeda["valor_centavos"] = int(item["centavos"])
-    moeda["confiavel"] = True
-    moeda["rotulo"] = item["rotulo"]
+    moeda["confiavel"] = confiavel
+    moeda["rotulo"] = item["rotulo"] if confiavel else f"{item['rotulo']}?"
 
 
 def _escolher_ouro_por_mm(mm: float, config: Config) -> dict | None:
@@ -103,7 +119,15 @@ def _observacoes(moedas: list[dict], valor_confiavel: bool, somar: bool) -> list
             "Há contorno com circularidade baixa: moedas encostadas podem ter sido contadas como um único objeto."
         )
     if somar and moedas and not valor_confiavel:
-        textos.append("A soma não é confiável: alguma moeda não teve a denominação definida.")
+        if any(moeda.get("valor_centavos") is None for moeda in moedas):
+            textos.append("A soma não é confiável: alguma moeda não teve a denominação definida.")
+        if any(
+            moeda.get("valor_centavos") is not None and not moeda.get("confiavel") for moeda in moedas
+        ):
+            textos.append(
+                "Ouro sem escala na foto foi contado como 10 centavos. "
+                "A soma inclui esse valor, mas 25 centavos tem a mesma cor e a soma fica incerta."
+            )
     return textos
 
 
@@ -169,7 +193,9 @@ def classificar(hsv: np.ndarray, moedas: list[dict], config: Config) -> dict:
             elif corte is not None:
                 _marcar(moeda, _ouro_relativo(moeda["diametro_px"], corte))
             else:
-                _marcar(moeda, None)
+                # Sem outra moeda para dar a escala, 10 e 25 centavos ficam
+                # indistinguíveis. A soma usa 10 centavos e permanece incerta.
+                _marcar(moeda, _ouro_menor(), confiavel=False)
             continue
         _marcar(moeda, None)
 

@@ -1,13 +1,11 @@
 {
   "arquivo": "WhatsApp Image 2026-11-23 at 09.34.06 (2).jpeg",
   "contagem": 4,
-  "valor_centavos": 0,
-  "valor_confiavel": false,
-  "escala_mm_por_px": null,
-  "tempo_s": 0.125327,
-  "observacoes": [
-    "A soma não é confiável: alguma moeda não teve a denominação definida."
-  ],
+  "valor_centavos": 30,
+  "valor_confiavel": true,
+  "escala_mm_por_px": 0.076405,
+  "tempo_s": 0.13107,
+  "observacoes": [],
   "moedas": [
     {
       "indice": 1,
@@ -21,10 +19,10 @@
       "aparencia": "ouro",
       "metal_centro": "ouro",
       "metal_anel": "ouro",
-      "denominacao": null,
-      "valor_centavos": null,
-      "confiavel": false,
-      "rotulo": "?"
+      "denominacao": "10 centavos",
+      "valor_centavos": 10,
+      "confiavel": true,
+      "rotulo": "10c"
     },
     {
       "indice": 2,
@@ -38,10 +36,10 @@
       "aparencia": "ouro",
       "metal_centro": "ouro",
       "metal_anel": "ouro",
-      "denominacao": null,
-      "valor_centavos": null,
-      "confiavel": false,
-      "rotulo": "?"
+      "denominacao": "10 centavos",
+      "valor_centavos": 10,
+      "confiavel": true,
+      "rotulo": "10c"
     },
     {
       "indice": 3,
@@ -52,13 +50,13 @@
       "circularidade": 0.8961,
       "diametro_px": 291.93,
       "possivel_juncao": false,
-      "aparencia": "ouro",
-      "metal_centro": "ouro",
-      "metal_anel": "ouro",
-      "denominacao": null,
-      "valor_centavos": null,
-      "confiavel": false,
-      "rotulo": "?"
+      "aparencia": "cobre",
+      "metal_centro": "cobre",
+      "metal_anel": "cobre",
+      "denominacao": "5 centavos",
+      "valor_centavos": 5,
+      "confiavel": true,
+      "rotulo": "5c"
     },
     {
       "indice": 4,
@@ -69,13 +67,13 @@
       "circularidade": 0.8965,
       "diametro_px": 284.06,
       "possivel_juncao": false,
-      "aparencia": "ouro",
-      "metal_centro": "ouro",
-      "metal_anel": "ouro",
-      "denominacao": null,
-      "valor_centavos": null,
-      "confiavel": false,
-      "rotulo": "?"
+      "aparencia": "cobre",
+      "metal_centro": "cobre",
+      "metal_anel": "cobre",
+      "denominacao": "5 centavos",
+      "valor_centavos": 5,
+      "confiavel": true,
+      "rotulo": "5c"
     }
   ],
   "rejeitados": [],

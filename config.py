@@ -49,7 +49,10 @@ class Config:
     somar_valores: bool = True
     mm_por_px: float | None = None
     saturacao_prata: float = 40.0
-    hue_cobre_max: float = 12.0
+    # No desenvolvimento, o anel da moeda gasta de 5 centavos fica com matiz
+    # até 17 e o da de 10 centavos fica de 18 para cima. O cobre sintético
+    # continua perto de 5 e o ouro sintético perto de 19.
+    hue_cobre_max: float = 17.0
     hue_ouro_max: float = 40.0
     fracao_amostra_centro: float = 0.40
     fracao_amostra_anel_interna: float = 0.72

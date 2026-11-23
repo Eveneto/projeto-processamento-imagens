@@ -2,14 +2,14 @@ Avaliação — conjunto teste
 Imagens: 5
 Acurácia exata da contagem: 60.00%
 Erro absoluto médio da contagem: 0.400
-Tempo médio por imagem: 0.0848 s
-Erro absoluto médio do valor (centavos): 10.00
-Imagens com valor comparado: 2
+Tempo médio por imagem: 0.0968 s
+Erro absoluto médio do valor (centavos): 15.00
+Imagens com valor comparado: 3
 Imagens sem resultado: 0
 
 arquivo | real | estimado | erro | valor real | valor estimado | tempo_s
-WhatsApp Image 2026-11-23 at 09.34.08 (1).jpeg | 3 | 3 | 0 | 25 | 40 | 0.0989
-WhatsApp Image 2026-11-23 at 09.34.05.jpeg | 4 | 4 | 0 | 35 | 0 | 0.1583
-WhatsApp Image 2026-11-23 at 09.34.09 (2).jpeg | 2 | 1 | 1 | 15 | 0 | 0.0565
-WhatsApp Image 2026-11-23 at 09.18.49.jpeg | 1 | 1 | 0 | 10 | 0 | 0.0826
-WhatsApp Image 2026-11-23 at 09.18.52 (3).jpeg | 1 | 0 | 1 | 5 | 0 | 0.0278
+WhatsApp Image 2026-11-23 at 09.34.08 (1).jpeg | 3 | 3 | 0 | 25 | 15 | 0.1149
+WhatsApp Image 2026-11-23 at 09.34.05.jpeg | 4 | 4 | 0 | 35 | 65 | 0.1387
+WhatsApp Image 2026-11-23 at 09.34.09 (2).jpeg | 2 | 1 | 1 | 15 | 0 | 0.0628
+WhatsApp Image 2026-11-23 at 09.18.49.jpeg | 1 | 1 | 0 | 10 | 10 | 0.0939
+WhatsApp Image 2026-11-23 at 09.18.52 (3).jpeg | 1 | 0 | 1 | 5 | 0 | 0.0736

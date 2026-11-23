@@ -1,0 +1,44 @@
+{
+  "arquivo": "WhatsApp Image 2026-11-23 at 09.18.52 (2).jpeg",
+  "contagem": 1,
+  "valor_centavos": 10,
+  "valor_confiavel": false,
+  "escala_mm_por_px": null,
+  "tempo_s": 0.055671,
+  "observacoes": [
+    "Ouro sem escala na foto foi contado como 10 centavos. A soma inclui esse valor, mas 25 centavos tem a mesma cor e a soma fica incerta."
+  ],
+  "moedas": [
+    {
+      "indice": 1,
+      "centro_x": 576.01,
+      "centro_y": 531.26,
+      "area": 144203.0,
+      "perimetro": 1421.11,
+      "circularidade": 0.8973,
+      "diametro_px": 434.23,
+      "possivel_juncao": false,
+      "aparencia": "ouro",
+      "metal_centro": "ouro",
+      "metal_anel": "ouro",
+      "denominacao": "10 centavos",
+      "valor_centavos": 10,
+      "confiavel": false,
+      "rotulo": "10c?"
+    }
+  ],
+  "rejeitados": [],
+  "parametros": {
+    "metodo_segmentacao": "bordas",
+    "polaridade": "auto",
+    "kernel_gaussiano": 5,
+    "kernel_morfologia": 5,
+    "circularidade_minima": 0.7,
+    "circularidade_minima_juncao": 0.5,
+    "area_minima_relativa": 0.002,
+    "area_maxima_relativa": 0.25,
+    "mm_por_px": null,
+    "somar_valores": true,
+    "usar_clahe": false
+  }
+}

@@ -4,7 +4,7 @@
   "valor_centavos": 0,
   "valor_confiavel": false,
   "escala_mm_por_px": null,
-  "tempo_s": 0.053823,
+  "tempo_s": 0.062181,
   "observacoes": [
     "Há contorno com circularidade baixa: moedas encostadas podem ter sido contadas como um único objeto.",
     "A soma não é confiável: alguma moeda não teve a denominação definida."

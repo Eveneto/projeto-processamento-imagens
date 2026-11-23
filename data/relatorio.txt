@@ -1,0 +1,57 @@
+Avaliação — conjunto todos
+Imagens: 44
+Soma total estimada: 400 centavos (R$ 4,00)
+Soma da parte confiável: 255 centavos (R$ 2,55)
+Soma real anotada: 520 centavos (R$ 5,20)
+Acurácia exata da contagem: 77.27%
+Erro absoluto médio da contagem: 0.273
+Tempo médio por imagem: 0.0691 s
+Erro absoluto médio do valor (centavos): 5.00
+Imagens com valor comparado: 23
+Imagens sem resultado: 0
+
+arquivo | conjunto | real | estimado | erro | valor real | valor estimado | confiavel | tempo_s
+WhatsApp Image 2026-11-23 at 09.34.07.jpeg | desenvolvimento | 3 | 3 | 0 | 15 | 20 | sim | 0.1055
+WhatsApp Image 2026-11-23 at 09.34.06 (2).jpeg | desenvolvimento | 4 | 4 | 0 | 30 | 30 | sim | 0.1311
+WhatsApp Image 2026-11-23 at 09.34.08.jpeg | desenvolvimento | 5 | 5 | 0 | 40 | 40 | sim | 0.1589
+WhatsApp Image 2026-11-23 at 09.34.06 (1).jpeg | desenvolvimento | 4 | 4 | 0 | 20 | 20 | sim | 0.1283
+WhatsApp Image 2026-11-23 at 09.34.05 (1).jpeg | desenvolvimento | 2 | 2 | 0 | 10 | 10 | sim | 0.0796
+WhatsApp Image 2026-11-23 at 09.34.09.jpeg | desenvolvimento | 2 | 1 | 1 | 20 | 0 | nao | 0.0622
+WhatsApp Image 2026-11-23 at 09.34.04.jpeg | desenvolvimento | 2 | 1 | 1 | 15 | 0 | nao | 0.0587
+WhatsApp Image 2026-11-23 at 09.18.40.jpeg | desenvolvimento | 1 | 1 | 0 | 10 | 10 | nao | 0.1033
+WhatsApp Image 2026-11-23 at 09.18.44 (2).jpeg | desenvolvimento | 1 | 1 | 0 | 5 | 5 | sim | 0.0538
+WhatsApp Image 2026-11-23 at 09.34.08 (1).jpeg | teste | 3 | 3 | 0 | 25 | 15 | sim | 0.1149
+WhatsApp Image 2026-11-23 at 09.34.05.jpeg | teste | 4 | 4 | 0 | 35 | 65 | sim | 0.1387
+WhatsApp Image 2026-11-23 at 09.34.09 (2).jpeg | teste | 2 | 1 | 1 | 15 | 0 | nao | 0.0628
+WhatsApp Image 2026-11-23 at 09.18.49.jpeg | teste | 1 | 1 | 0 | 10 | 10 | nao | 0.0939
+WhatsApp Image 2026-11-23 at 09.18.52 (3).jpeg | teste | 1 | 0 | 1 | 5 | 0 | sim | 0.0736
+WhatsApp Image 2026-11-23 at 09.18.41.jpeg | desenvolvimento | 1 | 1 | 0 | 5 | 5 | sim | 0.0600
+WhatsApp Image 2026-11-23 at 09.18.41 (1).jpeg | desenvolvimento | 1 | 1 | 0 | 5 | 5 | sim | 0.0619
+WhatsApp Image 2026-11-23 at 09.18.41 (2).jpeg | desenvolvimento | 1 | 0 | 1 | — | 0 | sim | 0.0645
+WhatsApp Image 2026-11-23 at 09.18.41 (3).jpeg | desenvolvimento | 1 | 1 | 0 | 5 | 5 | sim | 0.0612
+WhatsApp Image 2026-11-23 at 09.18.42.jpeg | desenvolvimento | 1 | 1 | 0 | 10 | 10 | nao | 0.0536
+WhatsApp Image 2026-11-23 at 09.18.42 (1).jpeg | desenvolvimento | 1 | 1 | 0 | 5 | 5 | sim | 0.0870
+WhatsApp Image 2026-11-23 at 09.18.43.jpeg | desenvolvimento | 1 | 1 | 0 | 10 | 10 | nao | 0.0595
+WhatsApp Image 2026-11-23 at 09.18.44.jpeg | desenvolvimento | 1 | 1 | 0 | 5 | 5 | sim | 0.0505
+WhatsApp Image 2026-11-23 at 09.18.44 (1).jpeg | desenvolvimento | 1 | 0 | 1 | 10 | 0 | sim | 0.0329
+WhatsApp Image 2026-11-23 at 09.18.50.jpeg | desenvolvimento | 1 | 0 | 1 | 5 | 0 | sim | 0.0300
+WhatsApp Image 2026-11-23 at 09.18.50 (1).jpeg | desenvolvimento | 1 | 1 | 0 | 10 | 10 | nao | 0.0573
+WhatsApp Image 2026-11-23 at 09.18.50 (2).jpeg | desenvolvimento | 1 | 1 | 0 | 5 | 5 | sim | 0.0545
+WhatsApp Image 2026-11-23 at 09.18.50 (3).jpeg | desenvolvimento | 1 | 1 | 0 | 10 | 10 | nao | 0.0550
+WhatsApp Image 2026-11-23 at 09.18.51.jpeg | desenvolvimento | 1 | 1 | 0 | 5 | 10 | nao | 0.0546
+WhatsApp Image 2026-11-23 at 09.18.51 (1).jpeg | desenvolvimento | 1 | 1 | 0 | 10 | 10 | nao | 0.0501
+WhatsApp Image 2026-11-23 at 09.18.51 (2).jpeg | desenvolvimento | 1 | 1 | 0 | 10 | 0 | nao | 0.0573
+WhatsApp Image 2026-11-23 at 09.18.52.jpeg | desenvolvimento | 1 | 1 | 0 | 5 | 0 | nao | 0.0575
+WhatsApp Image 2026-11-23 at 09.18.52 (1).jpeg | desenvolvimento | 1 | 1 | 0 | 5 | 5 | sim | 0.0575
+WhatsApp Image 2026-11-23 at 09.18.52 (2).jpeg | desenvolvimento | 1 | 1 | 0 | 10 | 10 | nao | 0.0557
+WhatsApp Image 2026-11-23 at 09.18.53.jpeg | desenvolvimento | 1 | 1 | 0 | 10 | 10 | nao | 0.0576
+WhatsApp Image 2026-11-23 at 09.18.53 (1).jpeg | desenvolvimento | 1 | 1 | 0 | 10 | 10 | nao | 0.0567
+WhatsApp Image 2026-11-23 at 09.18.53 (2).jpeg | desenvolvimento | 1 | 1 | 0 | 10 | 10 | nao | 0.0593
+WhatsApp Image 2026-11-23 at 09.18.54.jpeg | desenvolvimento | 1 | 1 | 0 | 10 | 10 | nao | 0.0549
+WhatsApp Image 2026-11-23 at 09.18.54 (1).jpeg | desenvolvimento | 1 | 1 | 0 | 5 | 5 | sim | 0.0603
+WhatsApp Image 2026-11-23 at 09.18.54 (2).jpeg | desenvolvimento | 1 | 1 | 0 | 10 | 10 | nao | 0.0548
+WhatsApp Image 2026-11-23 at 09.18.54 (3).jpeg | desenvolvimento | 1 | 0 | 1 | 10 | 0 | sim | 0.0307
+WhatsApp Image 2026-11-23 at 09.34.06.jpeg | desenvolvimento | 2 | 2 | 0 | 10 | 10 | sim | 0.0784
+WhatsApp Image 2026-11-23 at 09.34.08 (2).jpeg | desenvolvimento | 2 | 0 | 2 | 20 | 0 | sim | 0.0259
+WhatsApp Image 2026-11-23 at 09.34.08 (3).jpeg | desenvolvimento | 2 | 2 | 0 | 20 | 5 | nao | 0.1047
+WhatsApp Image 2026-11-23 at 09.34.09 (1).jpeg | desenvolvimento | 2 | 0 | 2 | 20 | 0 | sim | 0.0303

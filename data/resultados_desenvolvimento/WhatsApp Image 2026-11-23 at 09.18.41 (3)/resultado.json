@@ -1,0 +1,42 @@
+{
+  "arquivo": "WhatsApp Image 2026-11-23 at 09.18.41 (3).jpeg",
+  "contagem": 1,
+  "valor_centavos": 5,
+  "valor_confiavel": true,
+  "escala_mm_por_px": 0.048433,
+  "tempo_s": 0.061211,
+  "observacoes": [],
+  "moedas": [
+    {
+      "indice": 1,
+      "centro_x": 659.42,
+      "centro_y": 998.57,
+      "area": 160343.0,
+      "perimetro": 1501.19,
+      "circularidade": 0.8941,
+      "diametro_px": 454.24,
+      "possivel_juncao": false,
+      "aparencia": "cobre",
+      "metal_centro": "cobre",
+      "metal_anel": "cobre",
+      "denominacao": "5 centavos",
+      "valor_centavos": 5,
+      "confiavel": true,
+      "rotulo": "5c"
+    }
+  ],
+  "rejeitados": [],
+  "parametros": {
+    "metodo_segmentacao": "bordas",
+    "polaridade": "auto",
+    "kernel_gaussiano": 5,
+    "kernel_morfologia": 5,
+    "circularidade_minima": 0.7,
+    "circularidade_minima_juncao": 0.5,
+    "area_minima_relativa": 0.002,
+    "area_maxima_relativa": 0.25,
+    "mm_por_px": null,
+    "somar_valores": true,
+    "usar_clahe": false
+  }
+}

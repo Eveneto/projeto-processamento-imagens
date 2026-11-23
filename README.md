@@ -49,7 +49,15 @@ python main.py --pasta data/teste --saida data/resultados_teste
 python -m src.avaliar --anotacoes data/anotacoes.csv --resultados data/resultados_teste/resumo.csv --saida data/resultados_teste/relatorio_avaliacao.txt
 ```
 
-O relatório traz acurácia exata da contagem, erro absoluto médio, tempo médio e erro do valor nas imagens em que a soma foi marcada como confiável.
+O relatório traz acurácia exata da contagem, erro absoluto médio, tempo médio, erro do valor nas imagens em que a soma foi marcada como confiável e a soma total daquele conjunto.
+
+Para um relatório com todas as fotos, desenvolvimento e teste juntos, e a soma total estimada:
+
+```bash
+python -m src.avaliar --anotacoes data/anotacoes.csv --resultados data/resultados_desenvolvimento/resumo.csv data/resultados_teste/resumo.csv --conjunto todos --saida data/relatorio.txt
+```
+
+`python scripts/painel.py` também regrava `data/relatorio.txt`. A soma total junta cada cena. A mesma moeda aparece em várias fotos, então esse total não é o dinheiro de uma única mesa.
 
 ### 4. Uma foto só
 
@@ -139,18 +147,19 @@ O catálogo é a 2ª família do Real:
 | 25 centavos | 25 mm | ouro |
 | 1 real | 27 mm | prata no centro, ouro no anel |
 
-De cada moeda o programa lê a mediana do HSV em dois anéis: o disco interno, até 40% do raio, e a borda, de 72% a 92% do raio. Saturação abaixo de 40 é prata. Matiz até 12, ou a partir de 168, é cobre. Matiz até 40 é ouro.
+De cada moeda o programa lê a mediana do HSV em dois anéis: o disco interno, até 40% do raio, e a borda, de 72% a 92% do raio. Saturação abaixo de 40 é prata. Matiz até 17, ou a partir de 163, é cobre. Matiz até 40 é ouro. O corte 17 foi medido nas fotos de desenvolvimento: o anel da moeda gasta de 5 centavos fica até 17, e o da de 10 centavos fica de 18 para cima. O cobre das imagens sintéticas continua perto de 5 e o ouro sintético perto de 19.
 
 - cobre no centro e no anel: 5 centavos
+- um lado cobre e o outro ouro: vale o anel, porque o centro traz o algarismo e, na moeda gasta, destoa da borda
 - ouro no centro e prata no anel: 50 centavos
 - prata no centro e ouro no anel: 1 real
 - ouro nos dois lados: 10 ou 25 centavos, separados pelo diâmetro
 
-Sem `--mm-por-px`, a escala em milímetros por pixel sai da mediana das moedas cuja aparência aponta um único diâmetro. Ouro, junção e cor incerta não entram nessa conta. Se não houver escala e existirem dois tamanhos de ouro com razão acima de 1,15, o corte fica no meio dos dois diâmetros em pixels. Uma única classe de ouro, sem escala, fica sem denominação. A tolerância para casar o diâmetro com o catálogo é de 4 mm. Junção também fica sem denominação.
+Sem `--mm-por-px`, a escala em milímetros por pixel sai da mediana das moedas cuja aparência aponta um único diâmetro. Ouro, junção e cor incerta não entram nessa conta. Se não houver escala e existirem dois tamanhos de ouro com razão acima de 1,15, o corte fica no meio dos dois diâmetros em pixels. Uma única classe de ouro, sem escala, entra como 10 centavos e a soma fica incerta, porque 25 centavos tem a mesma cor. A tolerância para casar o diâmetro com o catálogo é de 4 mm. Junção fica sem denominação.
 
 ### 6. Soma
 
-A soma é a dos centavos atribuídos. Ela só é confiável quando toda moeda detectada tem denominação. Se alguma falha, o número é uma soma parcial e o resultado marca a soma como incerta. Se nenhuma moeda é detectada, a soma devolve 0 centavos e marca esse zero como confiável.
+A soma é a dos centavos atribuídos. Ela só é confiável quando toda moeda detectada tem denominação definida com escala. Ouro sem escala entra no total, com a soma marcada como incerta. Se alguma moeda fica sem valor, o número é uma soma parcial. Se nenhuma moeda é detectada, a soma devolve 0 centavos e marca esse zero como confiável.
 
 A transformada de Fourier, em `scripts/experimento_fourier.py`, é um experimento à parte e não altera a contagem nem a soma.
 
@@ -162,7 +171,7 @@ A segmentação foi escolhida só com as fotos de desenvolvimento. Otsu e o limi
 
 A circularidade em duas faixas existe para não tratar todo desvio de círculo do mesmo jeito. Uma moeda isolada nas imagens sintéticas fica perto de 0,90. O piso de 0,70 aceita a moeda real, que não é um círculo perfeito por causa do relevo e da luz. Entre 0,50 e 0,70 o objeto ainda é contado, mas a soma não confia nele: é o sinal de que duas moedas podem ter virado um contorno só. Abaixo de 0,50 o formato já não parece moeda.
 
-A cor em HSV separa cobre, ouro e as duas bimetálicas porque o catálogo da 2ª família repete o ouro em duas moedas, 10 e 25 centavos, e só o diâmetro as distingue. A escala não foi fixada à mão: a distância da câmera muda de foto para foto. Ela sai das moedas de aparência única que aparecem na mesma imagem. O desfoque gaussiano entra antes disso para o JPEG do celular não virar borda falsa.
+A cor em HSV separa cobre, ouro e as duas bimetálicas porque o catálogo da 2ª família repete o ouro em duas moedas, 10 e 25 centavos, e só o diâmetro as distingue. Nas fotos reais o cobre gasto não chega no matiz 12 das sintéticas: no desenvolvimento o anel da de 5 centavos fica até 17 e o da de 10 fica de 18 para cima, então o corte do cobre subiu para 17. Quando o centro e o anel discordam entre cobre e ouro, a borda decide, porque o algarismo no meio muda a cor. A escala não foi fixada à mão: a distância da câmera muda de foto para foto. Ela sai das moedas de aparência única que aparecem na mesma imagem. Sem essa âncora, o ouro de um tamanho só entra como 10 centavos e a soma fica incerta. O desfoque gaussiano entra antes disso para o JPEG do celular não virar borda falsa.
 
 Essa escolha não foi reaberta depois de ver o conjunto de teste.
 
@@ -178,8 +187,8 @@ O método conta moedas visíveis, sem sobreposição, em fundo claro e luz razoa
 
 **Zero confiável.** Quando nenhuma moeda é aceita, a soma devolve 0 centavos e marca esse zero como confiável. Isso entra no erro de valor como se a cena estivesse vazia.
 
-**Soma nas moedas gastas.** O conjunto real só tem 5 e 10 centavos velhos. A diferença de diâmetro é de 2 mm e a cor desbota, então a maior parte das somas fica incerta. Quando o programa crava um valor, ele pode errar: uma de 10 centavos foi lida como 25 (as duas são ouro e a tolerância é de 4 mm) e outra como 50 (centro ouro e anel prata). Sem `--mm-por-px`, a escala só sai de moedas de aparência única na mesma foto.
+**Soma nas moedas gastas.** O cobre com matiz até 17 vira 5 centavos e, quando há outra moeda na foto, dá a escala para o ouro. Foto só com ouro de um tamanho soma 10 centavos por moeda e fica incerta: 10 e 25 centavos têm a mesma cor. No desenvolvimento, 26 das 38 fotos com valor anotado fecham a soma; 14 dessas somas são confiáveis e batem com a anotação. Ainda falham a moeda antiga de prata uniforme (fora da 2ª família), o par encostado, a de 5 centavos cujo anel passou de 17 e foi lida como 10, e a foto em que uma das duas moedas ficou com o anel quase sem saturação.
 
-**Total do painel.** A soma total junta o valor de cada foto. A mesma moeda aparece em várias cenas, então o total não é o dinheiro de uma única mesa. Nas 44 fotos o estimado ficou em R$ 1,00, contra R$ 5,20 anotados, e a parte confiável também é R$ 1,00 vinda de duas fotos erradas.
+**Total do painel.** A soma total junta o valor de cada foto. A mesma moeda aparece em várias cenas, então o total não é o dinheiro de uma única mesa. Nas 44 fotos o estimado ficou em R$ 4,00, contra R$ 5,20 anotados. A parte confiável soma R$ 2,55.
 
 **O que o método não promete.** Sobreposição, oclusão, fundo muito variado e luz extrema. Otsu perde a moeda de 10 centavos clara, quase da mesma tonalidade do papel; por isso o padrão é a borda.

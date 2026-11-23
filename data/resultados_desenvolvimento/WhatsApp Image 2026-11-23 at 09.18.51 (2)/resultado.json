@@ -1,0 +1,44 @@
+{
+  "arquivo": "WhatsApp Image 2026-11-23 at 09.18.51 (2).jpeg",
+  "contagem": 1,
+  "valor_centavos": 0,
+  "valor_confiavel": false,
+  "escala_mm_por_px": null,
+  "tempo_s": 0.057312,
+  "observacoes": [
+    "A soma não é confiável: alguma moeda não teve a denominação definida."
+  ],
+  "moedas": [
+    {
+      "indice": 1,
+      "centro_x": 527.0,
+      "centro_y": 562.0,
+      "area": 167297.0,
+      "perimetro": 1533.19,
+      "circularidade": 0.8943,
+      "diametro_px": 466.96,
+      "possivel_juncao": false,
+      "aparencia": "incerta",
+      "metal_centro": "prata",
+      "metal_anel": "prata",
+      "denominacao": null,
+      "valor_centavos": null,
+      "confiavel": false,
+      "rotulo": "?"
+    }
+  ],
+  "rejeitados": [],
+  "parametros": {
+    "metodo_segmentacao": "bordas",
+    "polaridade": "auto",
+    "kernel_gaussiano": 5,
+    "kernel_morfologia": 5,
+    "circularidade_minima": 0.7,
+    "circularidade_minima_juncao": 0.5,
+    "area_minima_relativa": 0.002,
+    "area_maxima_relativa": 0.25,
+    "mm_por_px": null,
+    "somar_valores": true,
+    "usar_clahe": false
+  }
+}

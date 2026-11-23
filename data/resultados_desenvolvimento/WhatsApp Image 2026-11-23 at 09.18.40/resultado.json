@@ -1,12 +1,12 @@
 {
   "arquivo": "WhatsApp Image 2026-11-23 at 09.18.40.jpeg",
   "contagem": 1,
-  "valor_centavos": 0,
+  "valor_centavos": 10,
   "valor_confiavel": false,
   "escala_mm_por_px": null,
-  "tempo_s": 0.089912,
+  "tempo_s": 0.103262,
   "observacoes": [
-    "A soma não é confiável: alguma moeda não teve a denominação definida."
+    "Ouro sem escala na foto foi contado como 10 centavos. A soma inclui esse valor, mas 25 centavos tem a mesma cor e a soma fica incerta."
   ],
   "moedas": [
     {
@@ -21,10 +21,10 @@
       "aparencia": "ouro",
       "metal_centro": "ouro",
       "metal_anel": "ouro",
-      "denominacao": null,
-      "valor_centavos": null,
+      "denominacao": "10 centavos",
+      "valor_centavos": 10,
       "confiavel": false,
-      "rotulo": "?"
+      "rotulo": "10c?"
     }
   ],
   "rejeitados": [],

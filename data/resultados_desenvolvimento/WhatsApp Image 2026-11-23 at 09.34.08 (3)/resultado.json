@@ -1,0 +1,76 @@
+{
+  "arquivo": "WhatsApp Image 2026-11-23 at 09.34.08 (3).jpeg",
+  "contagem": 2,
+  "valor_centavos": 5,
+  "valor_confiavel": false,
+  "escala_mm_por_px": 0.125966,
+  "tempo_s": 0.104729,
+  "observacoes": [
+    "A soma não é confiável: alguma moeda não teve a denominação definida."
+  ],
+  "moedas": [
+    {
+      "indice": 1,
+      "centro_x": 594.47,
+      "centro_y": 41.82,
+      "area": 14285.5,
+      "perimetro": 499.32,
+      "circularidade": 0.72,
+      "diametro_px": 184.08,
+      "possivel_juncao": false,
+      "aparencia": "incerta",
+      "metal_centro": "cobre",
+      "metal_anel": "prata",
+      "denominacao": null,
+      "valor_centavos": null,
+      "confiavel": false,
+      "rotulo": "?"
+    },
+    {
+      "indice": 2,
+      "centro_x": 631.04,
+      "centro_y": 1503.34,
+      "area": 21783.5,
+      "perimetro": 552.94,
+      "circularidade": 0.8953,
+      "diametro_px": 174.65,
+      "possivel_juncao": false,
+      "aparencia": "cobre",
+      "metal_centro": "cobre",
+      "metal_anel": "cobre",
+      "denominacao": "5 centavos",
+      "valor_centavos": 5,
+      "confiavel": true,
+      "rotulo": "5c"
+    }
+  ],
+  "rejeitados": [
+    {
+      "centro_x": 15.43,
+      "centro_y": 1465.6,
+      "area": 9261.5,
+      "circularidade": 0.159,
+      "motivo": "circularidade_baixa"
+    },
+    {
+      "centro_x": 1134.74,
+      "centro_y": 959.85,
+      "area": 155102.5,
+      "circularidade": 0.1072,
+      "motivo": "circularidade_baixa"
+    }
+  ],
+  "parametros": {
+    "metodo_segmentacao": "bordas",
+    "polaridade": "auto",
+    "kernel_gaussiano": 5,
+    "kernel_morfologia": 5,
+    "circularidade_minima": 0.7,
+    "circularidade_minima_juncao": 0.5,
+    "area_minima_relativa": 0.002,
+    "area_maxima_relativa": 0.25,
+    "mm_por_px": null,
+    "somar_valores": true,
+    "usar_clahe": false
+  }
+}

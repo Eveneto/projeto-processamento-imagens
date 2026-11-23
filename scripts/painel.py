@@ -132,6 +132,10 @@ def gerar(saida: Path | None = None) -> Path:
         formatar_relatorio(metricas["desenvolvimento"]),
         encoding="utf-8",
     )
+    relatorio_todos = formatar_relatorio(
+        avaliar(RAIZ / "data" / "anotacoes.csv", saida / "resumo.csv", "todos")
+    )
+    (RAIZ / "data" / "relatorio.txt").write_text(relatorio_todos, encoding="utf-8")
     pagina = saida / "index.html"
     pagina.write_text(_html(cartoes, metricas, config), encoding="utf-8")
     print(f"Painel salvo em {pagina}")
@@ -301,11 +305,11 @@ def _bloco_tecnico(cartoes: list[dict], metricas: dict, config: Config) -> str:
 <thead><tr><th>Moeda</th><th>Diâmetro (mm)</th><th>Aparência</th><th>Centavos</th></tr></thead>
 <tbody>{catalogo}</tbody>
 </table>
-<p>De cada moeda o programa lê a mediana do HSV em dois anéis: o disco interno, até {centro} do raio, e a borda, de {anel_int} a {anel_ext} do raio. Saturação abaixo de {prata} é prata. Matiz até {cobre} ou a partir de {cobre_alto} é cobre. Matiz até {ouro} é ouro. Centro e anel iguais em cobre viram 5 centavos. Ouro no centro e prata no anel viram 50 centavos. Prata no centro e ouro no anel viram R$ 1. Ouro nos dois lados pode ser 10 ou 25 centavos.</p>
-<p>A escala em milímetros por pixel sai da mediana das moedas cuja aparência aponta um único diâmetro. Ouro, junção e cor incerta não entram nessa conta. Não há escala fixa informada à mão. Se não houver escala e existirem dois tamanhos de ouro com razão acima de {razao}, o corte fica no meio dos dois diâmetros em pixels. Uma única classe de ouro, sem escala, fica sem denominação. Junção também fica sem denominação.</p>
-<p>A soma é a dos centavos atribuídos. Ela só é confiável quando toda moeda detectada tem denominação. Se alguma falha, o número mostrado é uma soma parcial e o painel marca “incerto”. Se nenhuma moeda é detectada, a soma devolve 0 e marca esse 0 como confiável.</p>
+<p>De cada moeda o programa lê a mediana do HSV em dois anéis: o disco interno, até {centro} do raio, e a borda, de {anel_int} a {anel_ext} do raio. Saturação abaixo de {prata} é prata. Matiz até {cobre} ou a partir de {cobre_alto} é cobre. Matiz até {ouro} é ouro. O corte do cobre foi medido no desenvolvimento, nas moedas gastas. Centro e anel iguais em cobre viram 5 centavos. Se um lado é cobre e o outro é ouro, vale o anel: o centro traz o algarismo e destoa da borda. Ouro no centro e prata no anel viram 50 centavos. Prata no centro e ouro no anel viram R$ 1. Ouro nos dois lados pode ser 10 ou 25 centavos.</p>
+<p>A escala em milímetros por pixel sai da mediana das moedas cuja aparência aponta um único diâmetro. Ouro, junção e cor incerta não entram nessa conta. Não há escala fixa informada à mão. Se não houver escala e existirem dois tamanhos de ouro com razão acima de {razao}, o corte fica no meio dos dois diâmetros em pixels. Uma única classe de ouro, sem escala, entra como 10 centavos e a soma fica incerta, porque 25 centavos tem a mesma cor. Junção fica sem denominação.</p>
+<p>A soma é a dos centavos atribuídos. Ela só é confiável quando toda moeda detectada tem denominação definida com escala. Ouro sem escala entra no total e o painel marca “incerto”. Se alguma moeda fica sem valor, o número mostrado é uma soma parcial. Se nenhuma moeda é detectada, a soma devolve 0 e marca esse 0 como confiável.</p>
 <h2 class="secao">Onde o método erra nesta revisão</h2>
-<p>No desenvolvimento a contagem fecha em {acertos} de {imagens} fotos. O erro absoluto médio é {mae} moeda. As falhas de contagem se concentram em três mecanismos: moedas que se tocam, borda que não fecha e objeto cortado ou atrapalhado no quadro. A soma é o ponto fraco. As fotos só têm 5 e 10 centavos velhos: 2 mm de diferença e a cor gasta. Na maior parte das fotos o valor sai incerto. Quando a moeda some na detecção, o 0 confiável entra na conta do erro de valor e puxa a média para cima.</p>
+<p>No desenvolvimento a contagem fecha em {acertos} de {imagens} fotos. O erro absoluto médio é {mae} moeda. As falhas de contagem se concentram em três mecanismos: moedas que se tocam, borda que não fecha e objeto cortado ou atrapalhado no quadro. A de 5 centavos, com matiz até {cobre}, vira cobre e ancora a escala. Foto só com ouro de um tamanho soma 10 centavos por moeda e fica incerta. Moeda antiga de prata uniforme continua sem valor. Quando a moeda some na detecção, o 0 confiável entra na conta do erro de valor.</p>
 <ul class="falhas">{falhas}</ul>
 </section>
 """.format(

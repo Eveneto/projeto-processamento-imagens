@@ -1,10 +1,10 @@
 {
   "arquivo": "WhatsApp Image 2026-11-23 at 09.34.08 (1).jpeg",
   "contagem": 3,
-  "valor_centavos": 40,
+  "valor_centavos": 15,
   "valor_confiavel": true,
-  "escala_mm_por_px": 0.109549,
-  "tempo_s": 0.098898,
+  "escala_mm_por_px": 0.108563,
+  "tempo_s": 0.114852,
   "observacoes": [],
   "moedas": [
     {
@@ -16,13 +16,13 @@
       "circularidade": 0.8979,
       "diametro_px": 212.6,
       "possivel_juncao": false,
-      "aparencia": "ouro",
-      "metal_centro": "ouro",
-      "metal_anel": "ouro",
-      "denominacao": "25 centavos",
-      "valor_centavos": 25,
+      "aparencia": "cobre",
+      "metal_centro": "cobre",
+      "metal_anel": "cobre",
+      "denominacao": "5 centavos",
+      "valor_centavos": 5,
       "confiavel": true,
-      "rotulo": "25c"
+      "rotulo": "5c"
     },
     {
       "indice": 2,
@@ -33,13 +33,13 @@
       "circularidade": 0.8954,
       "diametro_px": 202.65,
       "possivel_juncao": false,
-      "aparencia": "ouro",
-      "metal_centro": "ouro",
-      "metal_anel": "ouro",
-      "denominacao": "10 centavos",
-      "valor_centavos": 10,
+      "aparencia": "cobre",
+      "metal_centro": "cobre",
+      "metal_anel": "cobre",
+      "denominacao": "5 centavos",
+      "valor_centavos": 5,
       "confiavel": true,
-      "rotulo": "10c"
+      "rotulo": "5c"
     },
     {
       "indice": 3,
