@@ -154,6 +154,18 @@ A soma é a dos centavos atribuídos. Ela só é confiável quando toda moeda de
 
 A transformada de Fourier, em `scripts/experimento_fourier.py`, é um experimento à parte e não altera a contagem nem a soma.
 
+## Por que esse caminho
+
+O enunciado pede um método clássico, com OpenCV e NumPy, sem rede neural. A contagem precisa funcionar com poucas fotos, fundo claro e moedas da 2ª família, então a forma e a cor bastam: não há um conjunto grande o suficiente para treinar um modelo, e a rede não era o objetivo do trabalho.
+
+A segmentação foi escolhida só com as fotos de desenvolvimento. Otsu e o limiar adaptativo foram comparados com a borda de Canny. O Otsu perde a moeda de 10 centavos clara, porque o cinza dela fica perto do papel. O CLAHE não corrigiu esses casos. O adaptativo e o Canny recuperaram essas moedas sem contar a faixa preta da mesa como moeda. O Canny ficou como padrão porque, nas moedas quase encostadas, o contorno em 8 ainda entra na contagem e recebe a marca de junção. No adaptativo, esse mesmo 8 caía abaixo de 0,50 de circularidade e era descartado, com contagem 0.
+
+A circularidade em duas faixas existe para não tratar todo desvio de círculo do mesmo jeito. Uma moeda isolada nas imagens sintéticas fica perto de 0,90. O piso de 0,70 aceita a moeda real, que não é um círculo perfeito por causa do relevo e da luz. Entre 0,50 e 0,70 o objeto ainda é contado, mas a soma não confia nele: é o sinal de que duas moedas podem ter virado um contorno só. Abaixo de 0,50 o formato já não parece moeda.
+
+A cor em HSV separa cobre, ouro e as duas bimetálicas porque o catálogo da 2ª família repete o ouro em duas moedas, 10 e 25 centavos, e só o diâmetro as distingue. A escala não foi fixada à mão: a distância da câmera muda de foto para foto. Ela sai das moedas de aparência única que aparecem na mesma imagem. O desfoque gaussiano entra antes disso para o JPEG do celular não virar borda falsa.
+
+Essa escolha não foi reaberta depois de ver o conjunto de teste.
+
 ## Limitações
 
 O método conta moedas visíveis, sem sobreposição, em fundo claro e luz razoavelmente uniforme. Fora disso, a contagem e a soma falham de jeitos já vistos nestas fotos.
