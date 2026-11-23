@@ -1,0 +1,53 @@
+{
+  "arquivo": "WhatsApp Image 2026-11-23 at 09.34.09.jpeg",
+  "contagem": 1,
+  "valor_centavos": 0,
+  "valor_confiavel": false,
+  "escala_mm_por_px": null,
+  "tempo_s": 0.053823,
+  "observacoes": [
+    "Há contorno com circularidade baixa: moedas encostadas podem ter sido contadas como um único objeto.",
+    "A soma não é confiável: alguma moeda não teve a denominação definida."
+  ],
+  "moedas": [
+    {
+      "indice": 1,
+      "centro_x": 397.81,
+      "centro_y": 541.55,
+      "area": 158335.0,
+      "perimetro": 1952.58,
+      "circularidade": 0.5219,
+      "diametro_px": 627.12,
+      "possivel_juncao": true,
+      "aparencia": "juncao",
+      "metal_centro": "ouro",
+      "metal_anel": "prata",
+      "denominacao": null,
+      "valor_centavos": null,
+      "confiavel": false,
+      "rotulo": "juncao?"
+    }
+  ],
+  "rejeitados": [
+    {
+      "centro_x": 1432.65,
+      "centro_y": 699.6,
+      "area": 370659.5,
+      "circularidade": 0.4704,
+      "motivo": "circularidade_baixa"
+    }
+  ],
+  "parametros": {
+    "metodo_segmentacao": "bordas",
+    "polaridade": "auto",
+    "kernel_gaussiano": 5,
+    "kernel_morfologia": 5,
+    "circularidade_minima": 0.7,
+    "circularidade_minima_juncao": 0.5,
+    "area_minima_relativa": 0.002,
+    "area_maxima_relativa": 0.25,
+    "mm_por_px": null,
+    "somar_valores": true,
+    "usar_clahe": false
+  }
+}

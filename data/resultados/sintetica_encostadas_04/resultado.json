@@ -1,0 +1,45 @@
+{
+  "arquivo": "sintetica_encostadas_04.png",
+  "contagem": 1,
+  "valor_centavos": 0,
+  "valor_confiavel": false,
+  "escala_mm_por_px": null,
+  "tempo_s": 0.075611,
+  "observacoes": [
+    "Há contorno com circularidade baixa: moedas encostadas podem ter sido contadas como um único objeto.",
+    "A soma não é confiável: alguma moeda não teve a denominação definida."
+  ],
+  "moedas": [
+    {
+      "indice": 1,
+      "centro_x": 294.14,
+      "centro_y": 250.01,
+      "area": 16945.0,
+      "perimetro": 592.1,
+      "circularidade": 0.6074,
+      "diametro_px": 203.25,
+      "possivel_juncao": true,
+      "aparencia": "juncao",
+      "metal_centro": "cobre",
+      "metal_anel": "prata",
+      "denominacao": null,
+      "valor_centavos": null,
+      "confiavel": false,
+      "rotulo": "juncao?"
+    }
+  ],
+  "rejeitados": [],
+  "parametros": {
+    "metodo_segmentacao": "otsu",
+    "polaridade": "auto",
+    "kernel_gaussiano": 5,
+    "kernel_morfologia": 5,
+    "circularidade_minima": 0.7,
+    "circularidade_minima_juncao": 0.5,
+    "area_minima_relativa": 0.002,
+    "area_maxima_relativa": 0.25,
+    "mm_por_px": null,
+    "somar_valores": true,
+    "usar_clahe": false
+  }
+}

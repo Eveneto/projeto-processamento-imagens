@@ -1,0 +1,44 @@
+{
+  "arquivo": "WhatsApp Image 2026-11-23 at 09.18.40.jpeg",
+  "contagem": 1,
+  "valor_centavos": 0,
+  "valor_confiavel": false,
+  "escala_mm_por_px": null,
+  "tempo_s": 0.089912,
+  "observacoes": [
+    "A soma não é confiável: alguma moeda não teve a denominação definida."
+  ],
+  "moedas": [
+    {
+      "indice": 1,
+      "centro_x": 388.25,
+      "centro_y": 622.02,
+      "area": 132863.0,
+      "perimetro": 1366.48,
+      "circularidade": 0.8941,
+      "diametro_px": 416.56,
+      "possivel_juncao": false,
+      "aparencia": "ouro",
+      "metal_centro": "ouro",
+      "metal_anel": "ouro",
+      "denominacao": null,
+      "valor_centavos": null,
+      "confiavel": false,
+      "rotulo": "?"
+    }
+  ],
+  "rejeitados": [],
+  "parametros": {
+    "metodo_segmentacao": "bordas",
+    "polaridade": "auto",
+    "kernel_gaussiano": 5,
+    "kernel_morfologia": 5,
+    "circularidade_minima": 0.7,
+    "circularidade_minima_juncao": 0.5,
+    "area_minima_relativa": 0.002,
+    "area_maxima_relativa": 0.25,
+    "mm_por_px": null,
+    "somar_valores": true,
+    "usar_clahe": false
+  }
+}

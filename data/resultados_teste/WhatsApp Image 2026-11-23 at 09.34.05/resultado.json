@@ -1,0 +1,103 @@
+{
+  "arquivo": "WhatsApp Image 2026-11-23 at 09.34.05.jpeg",
+  "contagem": 4,
+  "valor_centavos": 0,
+  "valor_confiavel": false,
+  "escala_mm_por_px": null,
+  "tempo_s": 0.158261,
+  "observacoes": [
+    "A soma não é confiável: alguma moeda não teve a denominação definida."
+  ],
+  "moedas": [
+    {
+      "indice": 1,
+      "centro_x": 551.18,
+      "centro_y": 235.8,
+      "area": 30126.5,
+      "perimetro": 649.85,
+      "circularidade": 0.8964,
+      "diametro_px": 203.0,
+      "possivel_juncao": false,
+      "aparencia": "ouro",
+      "metal_centro": "ouro",
+      "metal_anel": "ouro",
+      "denominacao": null,
+      "valor_centavos": null,
+      "confiavel": false,
+      "rotulo": "?"
+    },
+    {
+      "indice": 2,
+      "centro_x": 725.08,
+      "centro_y": 443.64,
+      "area": 27171.0,
+      "perimetro": 616.64,
+      "circularidade": 0.8979,
+      "diametro_px": 189.64,
+      "possivel_juncao": false,
+      "aparencia": "ouro",
+      "metal_centro": "ouro",
+      "metal_anel": "ouro",
+      "denominacao": null,
+      "valor_centavos": null,
+      "confiavel": false,
+      "rotulo": "?"
+    },
+    {
+      "indice": 3,
+      "centro_x": 914.55,
+      "centro_y": 635.31,
+      "area": 25080.5,
+      "perimetro": 592.74,
+      "circularidade": 0.897,
+      "diametro_px": 182.26,
+      "possivel_juncao": false,
+      "aparencia": "ouro",
+      "metal_centro": "ouro",
+      "metal_anel": "ouro",
+      "denominacao": null,
+      "valor_centavos": null,
+      "confiavel": false,
+      "rotulo": "?"
+    },
+    {
+      "indice": 4,
+      "centro_x": 1093.44,
+      "centro_y": 832.74,
+      "area": 23828.5,
+      "perimetro": 578.26,
+      "circularidade": 0.8955,
+      "diametro_px": 180.01,
+      "possivel_juncao": false,
+      "aparencia": "ouro",
+      "metal_centro": "ouro",
+      "metal_anel": "ouro",
+      "denominacao": null,
+      "valor_centavos": null,
+      "confiavel": false,
+      "rotulo": "?"
+    }
+  ],
+  "rejeitados": [
+    {
+      "centro_x": 1044.92,
+      "centro_y": 934.44,
+      "area": 364843.5,
+      "circularidade": 0.1455,
+      "motivo": "circularidade_baixa"
+    }
+  ],
+  "parametros": {
+    "metodo_segmentacao": "bordas",
+    "polaridade": "auto",
+    "kernel_gaussiano": 5,
+    "kernel_morfologia": 5,
+    "circularidade_minima": 0.7,
+    "circularidade_minima_juncao": 0.5,
+    "area_minima_relativa": 0.002,
+    "area_maxima_relativa": 0.25,
+    "mm_por_px": null,
+    "somar_valores": true,
+    "usar_clahe": false
+  }
+}

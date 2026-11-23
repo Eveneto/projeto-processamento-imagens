@@ -1,0 +1,4 @@
+﻿arquivo,contagem,valor_centavos,valor_confiavel,tempo_s,observacoes
+sintetica_encostadas_04.png,1,0,nao,0.075611,Há contorno com circularidade baixa: moedas encostadas podem ter sido contadas como um único objeto. | A soma não é confiável: alguma moeda não teve a denominação definida.
+sintetica_mista_03.png,5,190,sim,0.089225,
+sintetica_sem_moedas_05.png,0,0,sim,0.010455,

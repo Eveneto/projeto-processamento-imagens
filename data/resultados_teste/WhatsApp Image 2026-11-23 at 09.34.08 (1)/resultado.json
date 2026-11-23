@@ -1,0 +1,84 @@
+{
+  "arquivo": "WhatsApp Image 2026-11-23 at 09.34.08 (1).jpeg",
+  "contagem": 3,
+  "valor_centavos": 40,
+  "valor_confiavel": true,
+  "escala_mm_por_px": 0.109549,
+  "tempo_s": 0.098898,
+  "observacoes": [],
+  "moedas": [
+    {
+      "indice": 1,
+      "centro_x": 1302.63,
+      "centro_y": 319.05,
+      "area": 33017.0,
+      "perimetro": 679.75,
+      "circularidade": 0.8979,
+      "diametro_px": 212.6,
+      "possivel_juncao": false,
+      "aparencia": "ouro",
+      "metal_centro": "ouro",
+      "metal_anel": "ouro",
+      "denominacao": "25 centavos",
+      "valor_centavos": 25,
+      "confiavel": true,
+      "rotulo": "25c"
+    },
+    {
+      "indice": 2,
+      "centro_x": 324.64,
+      "centro_y": 382.98,
+      "area": 29809.0,
+      "perimetro": 646.78,
+      "circularidade": 0.8954,
+      "diametro_px": 202.65,
+      "possivel_juncao": false,
+      "aparencia": "ouro",
+      "metal_centro": "ouro",
+      "metal_anel": "ouro",
+      "denominacao": "10 centavos",
+      "valor_centavos": 10,
+      "confiavel": true,
+      "rotulo": "10c"
+    },
+    {
+      "indice": 3,
+      "centro_x": 851.93,
+      "centro_y": 867.27,
+      "area": 29912.5,
+      "perimetro": 647.85,
+      "circularidade": 0.8956,
+      "diametro_px": 200.82,
+      "possivel_juncao": false,
+      "aparencia": "cobre",
+      "metal_centro": "cobre",
+      "metal_anel": "cobre",
+      "denominacao": "5 centavos",
+      "valor_centavos": 5,
+      "confiavel": true,
+      "rotulo": "5c"
+    }
+  ],
+  "rejeitados": [
+    {
+      "centro_x": 853.35,
+      "centro_y": 1151.25,
+      "area": 163116.5,
+      "circularidade": 0.1632,
+      "motivo": "circularidade_baixa"
+    }
+  ],
+  "parametros": {
+    "metodo_segmentacao": "bordas",
+    "polaridade": "auto",
+    "kernel_gaussiano": 5,
+    "kernel_morfologia": 5,
+    "circularidade_minima": 0.7,
+    "circularidade_minima_juncao": 0.5,
+    "area_minima_relativa": 0.002,
+    "area_maxima_relativa": 0.25,
+    "mm_por_px": null,
+    "somar_valores": true,
+    "usar_clahe": false
+  }
+}
