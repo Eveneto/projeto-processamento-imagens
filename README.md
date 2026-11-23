@@ -92,6 +92,68 @@ python scripts/experimento_fourier.py
 
 Não rode `python scripts/gerar_sinteticas.py` em cima deste conjunto. Esse script reescreve `data/anotacoes.csv` e grava PNGs dentro de `data/desenvolvimento/` e `data/teste/`.
 
+## Técnicas
+
+A contagem não usa rede neural. O caminho padrão está em `config.py` e passa por seis etapas.
+
+### 1. Suavização e conversão de cor
+
+A foto entra em BGR. Um desfoque gaussiano 5×5 reduz o ruído da compressão do JPEG. Dessa imagem suavizada saem duas versões:
+
+- cinza, usada para achar a forma
+- HSV, usada para a cor
+
+O CLAHE está desligado.
+
+### 2. Segmentação por bordas
+
+O padrão é o detector de Canny, com limiares 50 e 150. A borda é dilatada e fechada com uma elipse de 5×5 pixels. Os contornos externos são preenchidos e viram a máscara branca.
+
+Otsu e o limiar adaptativo continuam disponíveis em `--metodo otsu` e `--metodo adaptativo`. O Otsu saiu do padrão porque, nas fotos de desenvolvimento, a moeda de 10 centavos clara fica quase da mesma tonalidade do papel e some no limiar global. No modo automático, Otsu e o adaptativo escolhem a polaridade (moeda escura ou clara) pela quantidade de componentes que já parecem moeda.
+
+### 3. Morfologia
+
+A máscara passa por abertura (1 vez), fechamento (2 vezes) e preenchimento dos buracos internos. O canto da foto é tratado como fundo: um reflexo no meio da moeda entra no objeto e a mesa em volta continua de fora.
+
+### 4. Contornos, área e circularidade
+
+Cada contorno externo vira candidato. A área precisa ficar entre 0,2% e 25% da imagem, o que descarta poeira e também a faixa preta da mesa quando ela ocupa um pedaço grande do quadro.
+
+A circularidade é 4π × área / perímetro². O círculo perfeito vale 1.
+
+- de 0,70 para cima, conta como uma moeda
+- entre 0,50 e 0,70, ainda conta como um objeto e marca possível junção de moedas encostadas
+- abaixo de 0,50, descarta
+
+O centro sai dos momentos do contorno. O diâmetro em pixels sai do menor círculo que envolve o contorno.
+
+### 5. Cor em HSV e diâmetro
+
+O catálogo é a 2ª família do Real:
+
+| Moeda | Diâmetro | Aparência |
+| --- | --- | --- |
+| 10 centavos | 20 mm | ouro |
+| 5 centavos | 22 mm | cobre |
+| 50 centavos | 23 mm | ouro no centro, prata no anel |
+| 25 centavos | 25 mm | ouro |
+| 1 real | 27 mm | prata no centro, ouro no anel |
+
+De cada moeda o programa lê a mediana do HSV em dois anéis: o disco interno, até 40% do raio, e a borda, de 72% a 92% do raio. Saturação abaixo de 40 é prata. Matiz até 12, ou a partir de 168, é cobre. Matiz até 40 é ouro.
+
+- cobre no centro e no anel: 5 centavos
+- ouro no centro e prata no anel: 50 centavos
+- prata no centro e ouro no anel: 1 real
+- ouro nos dois lados: 10 ou 25 centavos, separados pelo diâmetro
+
+Sem `--mm-por-px`, a escala em milímetros por pixel sai da mediana das moedas cuja aparência aponta um único diâmetro. Ouro, junção e cor incerta não entram nessa conta. Se não houver escala e existirem dois tamanhos de ouro com razão acima de 1,15, o corte fica no meio dos dois diâmetros em pixels. Uma única classe de ouro, sem escala, fica sem denominação. A tolerância para casar o diâmetro com o catálogo é de 4 mm. Junção também fica sem denominação.
+
+### 6. Soma
+
+A soma é a dos centavos atribuídos. Ela só é confiável quando toda moeda detectada tem denominação. Se alguma falha, o número é uma soma parcial e o resultado marca a soma como incerta. Se nenhuma moeda é detectada, a soma devolve 0 centavos e marca esse zero como confiável.
+
+A transformada de Fourier, em `scripts/experimento_fourier.py`, é um experimento à parte e não altera a contagem nem a soma.
+
 ## Limitações
 
 O método conta moedas visíveis, sem sobreposição, em fundo claro e luz razoavelmente uniforme. Fora disso, a contagem e a soma falham de jeitos já vistos nestas fotos.
